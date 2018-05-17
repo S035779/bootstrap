@@ -16,8 +16,7 @@
   </head>
 
   <body>
-    <nav class
-      ="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
         AmazonMWS Tools
       </a>
@@ -167,7 +166,7 @@
                   </div>
 
                   <div class="mb-3">
-                    <label for="proifit">利益幅</label>
+                    <label for="profit">利益幅</label>
                     <input type="text"
                       class="form-control"
                       id="profit"
@@ -394,10 +393,7 @@
         container: 'body'
       , html: true
       , title: "商品詳細"
-      , content: function() {
-         var content = $(this).data('target');
-         return $(content).html()
-        }
+      , content: $($(this).data('target')).html()
       });
     })
   </script>
