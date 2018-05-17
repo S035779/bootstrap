@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="desctiption" content="bootstrap-4.1.1">
+    <meta name="author" content="Mamoru Hashimoto">
+    <link rel="icon" href="favicon.ico">
+    <title>Token registration for Amazon MWS tools</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/dist/css/bootstrap.min.css" >
+    <link href="dashboard.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class
+      ="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
+        AmazonMWS Tools
+      </a>
+      <input class="form-control form-control-dark w-100" type="text"
+        placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="signin.html">Sign out</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main menu -->
+    <div class="container-fluid">
+      <div class="row">
+
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                  <span data-feather="home"></span>
+                  ダッシュボード
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="token.html">
+                  <span data-feather="file"></span>
+                  トークン設定
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="search.html">
+                  <span data-feather="search"></span>
+                  商品検索
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="market.html">
+                  <span data-feather="shopping-cart"></span>
+                  マーケット出品
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="user.html">
+                  <span data-feather="user"></span>
+                  ユーザ管理
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="asin_regist.html">
+                  <span data-feather="bar-chart-2"></span>
+                  新規ASIN登録
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="asin_prohibit.html">
+                  <span data-feather="layers"></span>
+                  禁止ASIN登録
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="calculation.html">
+                  <span data-feather="layers"></span>
+                  販売価格設定<span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>登録データ管理</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+
+            <ul class="nav flex-column mb-2">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  ASIN管理マスタ
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  ユーザ管理マスタ
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  商品管理マスタ
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  送料管理マスタ
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file-text"></span>
+                  トークン管理マスタ
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </nav>
+
+        <!-- Main contens -->
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">販売価格設定</h1>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 order-md-1">
+                <form class="needs-validation" novalidate>
+
+                  <h4 class="mb-3">販売商品</h4>
+
+                  <div class="form-group mb-3">
+                    <div class="form-check form-check-inline">
+                      <label>アマゾン商品の販売</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" value="option1" checked
+                        class="form-check-input"
+                        name="sellingRadios"
+                        id="sellingRadio1">
+                      <label class="form-check-label"
+                        for="sellingRadio1">販売する</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input type="radio" value="option2"
+                        class="form-check-input"
+                        name="sellingRadios"
+                        id="sellingRadio2">
+                      <label class="form-check-label"
+                        for="sellingRadio2">販売しない</label>
+                    </div>
+                  </div>
+
+                  <h4 class="mb-3">在庫数指定</h4>
+
+                  <div class="form-group row mb-3">
+                    <label for="quantity-rate"
+                      class="col-sm-5 col-form-label">
+                      在庫数　＝　アマゾンでの在庫数</label>
+                    <label for="quantity-rate"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="quantity-rate"
+                        placeholder="100" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid quantity rate.
+                      </div>
+                    </div>
+                    <label for="quantity-rate"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="quantity-number"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="quantity-number"
+                        placeholder="0" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid quantity number.
+                      </div>
+                    </div>
+                  </div>
+
+                  <h4 class="mb-3">価格判定</h4>
+
+                  <div class="form-group row mb-3">
+                    <label for="buyprice1"
+                      class="col-sm-4 col-form-label">
+                      アマゾンの購入額が</label>
+                    <div class="col-sm-4">
+                      <input type="text"
+                        class="form-control"
+                        id="buyprice1"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid buy price.
+                      </div>
+                    </div>
+                    <label for="buyprice1"
+                      class="col-sm-4 col-form-label">
+                      円以下はパターン１</label>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="buyprice2"
+                      class="col-sm-4 col-form-label">
+                      アマゾンの購入額が</label>
+                    <div class="col-sm-4">
+                      <input type="text"
+                        class="form-control"
+                        id="buyprice2"
+                        placeholder="5000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid buy price.
+                      </div>
+                    </div>
+                    <label for="buyprice2"
+                      class="col-sm-4 col-form-label">
+                      円以下はパターン２</label>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="buyprice3"
+                      class="col-sm-4 col-form-label">
+                      アマゾンの購入額が</label>
+                    <div class="col-sm-4">
+                      <input type="text"
+                        class="form-control"
+                        id="buyprice3"
+                        placeholder="10000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid buy price.
+                      </div>
+                    </div>
+                    <label for="buyprice3"
+                      class="col-sm-4 col-form-label">
+                      円以下はパターン３</label>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="buyprice4"
+                      class="col-sm-4 col-form-label">
+                      アマゾンの購入額が</label>
+                    <div class="col-sm-4">
+                      <input type="text"
+                        class="form-control"
+                        id="buyprice4"
+                        placeholder="30000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid buy price.
+                      </div>
+                    </div>
+                    <label for="buyprice4"
+                      class="col-sm-4 col-form-label">
+                      円以下はパターン４</label>
+                  </div>
+
+                  <h4 class="mb-3">販売価格</h4>
+
+                  <h6 class="mb-3">パターン１</h6>
+                  <div class="form-group row mb-3">
+                    <label for="price-rate1"
+                      class="col-sm-5 col-form-label">
+                      販売価格　＝　アマゾンの購入額</label>
+                    <label for="price-rate1"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-rate1"
+                        placeholder="140" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price rate.
+                      </div>
+                    </div>
+                    <label for="price-rate1"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="price-number1"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-number1"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="delete-rate1"
+                      class="col-sm-5 col-form-label">
+                      削除条件　＝　登録時の購入額</label>
+                    <label for="delete-rate1"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-rate1"
+                        placeholder="110" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid delete rate.
+                      </div>
+                    </div>
+                    <label for="delete-rate1"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="delete-number1"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-number1"
+                        placeholder="200" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 class="mb-3">パターン２</h6>
+                  <div class="form-group row mb-3">
+                    <label for="price-rate2"
+                      class="col-sm-5 col-form-label">
+                      販売価格　＝　アマゾンの購入額</label>
+                    <label for="price-rate2"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-rate2"
+                        placeholder="140" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price rate.
+                      </div>
+                    </div>
+                    <label for="price-rate2"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="price-number2"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-number2"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="delete-rate2"
+                      class="col-sm-5 col-form-label">
+                      削除条件　＝　登録時の購入額</label>
+                    <label for="delete-rate2"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-rate2"
+                        placeholder="110" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid delete rate.
+                      </div>
+                    </div>
+                    <label for="delete-rate2"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="delete-number2"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-number2"
+                        placeholder="600" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 class="mb-3">パターン３</h6>
+                  <div class="form-group row mb-3">
+                    <label for="price-rate3"
+                      class="col-sm-5 col-form-label">
+                      販売価格　＝　アマゾンの購入額</label>
+                    <label for="price-rate3"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-rate3"
+                        placeholder="140" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price rate.
+                      </div>
+                    </div>
+                    <label for="price-rate3"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="price-number3"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-number3"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="delete-rate3"
+                      class="col-sm-5 col-form-label">
+                      削除条件　＝　登録時の購入額</label>
+                    <label for="delete-rate3"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-rate3"
+                        placeholder="110" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid delete rate.
+                      </div>
+                    </div>
+                    <label for="delete-rate3"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="delete-number3"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-number3"
+                        placeholder="600" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 class="mb-3">パターン４</h6>
+                  <div class="form-group row mb-3">
+                    <label for="price-rate4"
+                      class="col-sm-5 col-form-label">
+                      販売価格　＝　アマゾンの購入額</label>
+                    <label for="price-rate4"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-rate4"
+                        placeholder="140" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price rate.
+                      </div>
+                    </div>
+                    <label for="price-rate4"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="price-number4"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-number4"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="delete-rate4"
+                      class="col-sm-5 col-form-label">
+                      削除条件　＝　登録時の購入額</label>
+                    <label for="delete-rate4"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-rate4"
+                        placeholder="110" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid delete rate.
+                      </div>
+                    </div>
+                    <label for="delete-rate4"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="delete-number4"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-number4"
+                        placeholder="600" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+
+                  <h6 class="mb-3">パターン５</h6>
+                  <div class="form-group row mb-3">
+                    <label for="price-rate5"
+                      class="col-sm-5 col-form-label">
+                      販売価格　＝　アマゾンの購入額</label>
+                    <label for="price-rate5"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-rate5"
+                        placeholder="140" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price rate.
+                      </div>
+                    </div>
+                    <label for="price-rate5"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="price-number5"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="price-number5"
+                        placeholder="1000" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row mb-3">
+                    <label for="delete-rate5"
+                      class="col-sm-5 col-form-label">
+                      削除条件　＝　登録時の購入額</label>
+                    <label for="delete-rate5"
+                      class="col-sm-1 col-form-label">✕</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-rate5"
+                        placeholder="110" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid delete rate.
+                      </div>
+                    </div>
+                    <label for="delete-rate5"
+                      class="col-form-label col-sm-1">％</label>
+                    <label for="delete-number5"
+                      class="col-form-label col-sm-1">＋</label>
+                    <div class="col-sm-2">
+                      <input type="text"
+                        class="form-control"
+                        id="delete-number5"
+                        placeholder="600" required>
+                      <div class="invalid-feedback">
+                        Please enter a valid price.
+                      </div>
+                    </div>
+                  </div>
+
+                  <hr class="mb-4">
+                  <button type="submit"
+                    class="btn btn-primary btn-lg btn-block">
+                    登録する
+                  </button>
+
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </main>
+      </div>
+    </div>
+
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">送信完了</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            処理を受け付ました。
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/js/vendor/jquery-slim.min.js" ></script>
+    <script src="/assets/js/vendor/popper.min.js" ></script>
+    <script src="/dist/js/bootstrap.min.js" ></script>
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>feather.replace()</script>
+    <!-- Validation check -->
+    <script src="/assets/js/vendor/holder.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        var forms = document.getElementsByClassName('needs-validation');
+        var validation = Array.prototype.filter.call(forms
+          , function(form) {
+          form.addEventListener('submit', function(event) {
+            if(form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+  </body>
+</html>
